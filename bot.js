@@ -2,6 +2,7 @@ require('dotenv').config();
 const { Telegraf } = require('telegraf');
 const start = require('./res/commands/start');
 const shop = require('./res/actions/shop');
+const shopCommand = require('./res/commands/shop');
 const product = require('./res/actions/product');
 const shirt_price = require('./res/actions/shirt_price');
 const pay = require('./res/actions/pay');
@@ -19,6 +20,7 @@ on(bot);
 
 //command
 start(bot);
+shopCommand(bot);
 
 //actions
 shop(bot);

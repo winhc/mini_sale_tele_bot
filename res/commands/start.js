@@ -5,16 +5,26 @@ module.exports = (bot) => {
         bot.telegram.sendMessage(ctx.chat.id, message,
             {
                 reply_markup: {
-                    keyboard: [
+                    inline_keyboard: [
                         [
-                            { text: 'Shop Now' }
+                            { text: "Shop now", callback_data: "shop" }
                         ]
-                    ],
-                    resize_keyboard: true,
-                    // one_time_keyboard: true
+                    ]
                 }
-            },
+            }
 
         );
+        const commandList = [
+            {
+                command: '/start',
+                description: 'Start'
+            },
+            {
+                command: '/shop',
+                description: 'Shop now'
+            },
+        ];
+        bot.telegram.setMyCommands(commandList);
+        
     });
 }
